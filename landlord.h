@@ -23,12 +23,22 @@ private:
     int aptNumber;  // tenant’s apartment number
     // other tenant information (phone, etc.) could go here
 public:
-    tenant(string n, int aNo);
+    tenant(string n, int aNo){
+        name = n;
+        aptNumber = aNo;
+    }
+
     ~tenant();
-    int getAptNumber();
+    int getAptNumber(){
+        return aptNumber;
+    }
     // needed for use in ‘set’
-    friend bool operator < (const tenant&, const tenant&);
-    friend bool operator == (const tenant&, const tenant&);
+    friend bool operator < (const tenant&, const tenant2&){
+        if (tenant->name < tenant->name && tenant->aptNumber < tenant->aptNumber);
+    }
+    friend bool operator == (const tenant&, const tenant&){
+        if (tenant->name == tenant->name && tenant->aptNumber == tenant->aptNumber);
+    }
     // for I/O
     friend ostream& operator << (ostream&, const tenant&);
 };  // end class tenant
@@ -46,10 +56,22 @@ private:
     set<tenant*, compareTenants> setPtrsTens;
     set<tenant*, compareTenants>::iterator iter;
 public:
-    ~tenantList();               // destructor (deletes tenants)
-    void insertTenant(tenant*);  // put tenant on list
-    int getAptNo(string);        // return apartment number
-    void display();              // display tenant list
+    ~tenantList(){}           // destructor (deletes tenants)
+    void insertTenant(tenant* t){
+        setPtrsTens.insert(t)
+    } // put tenant on list
+    int getAptNo(string name){
+        for (auto x : setPtrsTens){
+            if (x == name){
+                return x->getAptNumber;
+            }
+        }
+    } // return apartment number
+    void display(){
+        for (auto x : setPtrsTens){
+            std::cout<< "number is : " << x->getAptNumber << "\n";
+        }
+    } // display tenant list
 };  // end class tenantList
 /////////////////////class tenantInputScreen////////////////////
 class tenantInputScreen

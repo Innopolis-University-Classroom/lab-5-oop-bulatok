@@ -1,0 +1,7 @@
+make.exe --dry-run --keep-going --print-directory
+make.exe: Entering directory 'c:/Users/User/github-classroom/Innopolis-University-Classroom/lab-5-oop-bulatok'
+rm -f appTests
+make.exe: Leaving directory 'c:/Users/User/github-classroom/Innopolis-University-Classroom/lab-5-oop-bulatok'
+ 
+make.exe: *** No rule to make target 'lab02.hpp', needed by 'appTests'.
+ 
